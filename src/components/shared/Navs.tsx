@@ -1,11 +1,10 @@
 "use client";
 import React, {useState} from "react";
 import {navItems, smsNavs} from "@/lib/data";
-import {CiLogout, CiSettings} from "react-icons/ci";
+import {CiLogout} from "react-icons/ci";
 import Link from "next/link";
 import {useAuth} from "@/features/AuthPage/hooks/useAuth";
 import {useGetWallet} from "@/lib/hooks/useGetWalltet";
-import {useGetSmsBalance} from "@/features/RechargePage/hooks/useGetSmsBalance";
 import {usePathname} from 'next/navigation';
 import {Avatar, Button, Popover} from "antd";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -18,7 +17,7 @@ const Navs = () => {
     const {isLoading: isLoadingBalance, data: walletData} = useGetWallet(
         user?.id || ""
     );
-    const {isLoading, data: smsBalanceData} = useGetSmsBalance();
+
     const [menuOpen, setMenuOpen] = useState(false);
     const handleLogout = () => {
         logout();
@@ -39,10 +38,6 @@ const Navs = () => {
                             </p>
                         {/*</Link>*/}
                         <p>|</p>
-                        {/*<Link href={"/sms"}>*/}
-                            <p className="rounded-2xl flex items-center gap-1">
-                                <img src="/svgs/sms.svg" alt="msg" className="w-[20px]"/>{smsBalanceData?.data.totalSmsCredits}</p>
-                        {/*</Link>*/}
                     </div>
                     <Link href={"/wallet"}>
                         <Button className="text-primary rounded-md"><span className="text-lg">+</span> TopUp</Button>
