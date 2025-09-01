@@ -1,0 +1,138 @@
+<svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Premium gradient backgrounds -->
+        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+            <stop offset="30%" style="stop-color:#764ba2;stop-opacity:1" />
+            <stop offset="70%" style="stop-color:#f093fb;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="tealGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+        </linearGradient>
+
+        <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.25" />
+            <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.1" />
+            <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+        </linearGradient>
+
+        <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Advanced filters for premium effects -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <filter id="premiumShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#667eea" flood-opacity="0.15"/>
+        </filter>
+
+        <filter id="glassEffect" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+            <feOffset dx="0" dy="2" result="offset"/>
+            <feFlood flood-color="#ffffff" flood-opacity="0.3"/>
+            <feComposite in2="offset" operator="in"/>
+            <feMerge>
+                <feMergeNode/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- Animated gradient for extra appeal -->
+        <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1">
+                <animate attributeName="stop-color" values="#ff6b6b;#4ecdc4;#45b7d1;#ff6b6b" dur="3s" repeatCount="indefinite"/>
+            </stop>
+            <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1">
+                <animate attributeName="stop-color" values="#4ecdc4;#45b7d1;#ff6b6b;#4ecdc4" dur="3s" repeatCount="indefinite"/>
+            </stop>
+        </linearGradient>
+    </defs>
+
+    <!-- Background decorative elements -->
+    <circle cx="280" cy="30" r="20" fill="url(#tealGlow)" opacity="0.1" filter="url(#glow)"/>
+    <circle cx="300" cy="80" r="15" fill="url(#heroGradient)" opacity="0.15"/>
+    <path d="M290 20 Q300 10 310 20 Q300 30 290 20" fill="url(#animatedGradient)" opacity="0.3"/>
+
+    <!-- Main logo container with glassmorphism -->
+    <g transform="translate(20, 25)">
+        <!-- Glass background -->
+        <rect x="0" y="0" width="260" height="70" rx="20" fill="url(#glassGradient)" filter="url(#glassEffect)" opacity="0.8"/>
+        <rect x="0" y="0" width="260" height="70" rx="20" fill="none" stroke="url(#heroGradient)" stroke-width="1" opacity="0.6"/>
+
+        <!-- Premium message bubble -->
+        <g transform="translate(15, 15)">
+            <!-- Main bubble with gradient -->
+            <rect x="0" y="0" width="50" height="32" rx="16" fill="url(#heroGradient)" filter="url(#premiumShadow)"/>
+            <rect x="2" y="2" width="46" height="28" rx="14" fill="url(#glassGradient)" opacity="0.4"/>
+
+            <!-- Bubble tail -->
+            <path d="M50 20 L60 25 L50 28 Z" fill="url(#heroGradient)" filter="url(#premiumShadow)"/>
+
+            <!-- Message content -->
+            <line x1="8" y1="12" x2="35" y2="12" stroke="white" stroke-width="2.5" opacity="0.9" stroke-linecap="round"/>
+            <line x1="8" y1="18" x2="28" y2="18" stroke="white" stroke-width="2.5" opacity="0.7" stroke-linecap="round"/>
+            <line x1="8" y1="24" x2="32" y2="24" stroke="white" stroke-width="2.5" opacity="0.8" stroke-linecap="round"/>
+
+            <!-- Signal waves with glow -->
+            <g transform="translate(65, 5)">
+                <path d="M0 16 Q10 8 0 0" stroke="url(#tealGlow)" stroke-width="3" fill="none" opacity="0.8" stroke-linecap="round" filter="url(#glow)"/>
+                <path d="M8 20 Q20 8 8 -4" stroke="url(#tealGlow)" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round" filter="url(#glow)"/>
+                <path d="M16 24 Q30 8 16 -8" stroke="url(#tealGlow)" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round" filter="url(#glow)"/>
+            </g>
+        </g>
+
+        <!-- Premium typography -->
+        <text x="110" y="32" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="url(#textGradient)" filter="url(#premiumShadow)">send</text>
+        <text x="110" y="55" font-family="Arial, sans-serif" font-size="28" font-weight="300" fill="url(#heroGradient)" filter="url(#premiumShadow)">Line</text>
+
+        <!-- Animated accent line -->
+        <line x1="110" y1="60" x2="240" y2="60" stroke="url(#animatedGradient)" stroke-width="3" opacity="0.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Floating service badges -->
+    <g transform="translate(30, 95)">
+        <rect x="0" y="0" width="60" height="20" rx="10" fill="url(#heroGradient)" filter="url(#premiumShadow)"/>
+        <text x="30" y="13" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">BULK SMS</text>
+
+        <rect x="70" y="0" width="40" height="20" rx="10" fill="url(#tealGlow)" filter="url(#premiumShadow)"/>
+        <text x="90" y="13" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">OTP</text>
+
+        <rect x="120" y="0" width="50" height="20" rx="10" fill="url(#animatedGradient)" filter="url(#premiumShadow)"/>
+        <text x="145" y="13" font-family="Arial, sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle" dominant-baseline="middle">USSD</text>
+    </g>
+
+    <!-- Floating notification with pulse -->
+    <g transform="translate(270, 20)">
+        <circle cx="0" cy="0" r="12" fill="url(#heroGradient)" filter="url(#glow)">
+            <animate attributeName="r" values="12;15;12" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="0" cy="0" r="8" fill="url(#glassGradient)" opacity="0.6"/>
+        <text x="0" y="3" font-family="Arial, sans-serif" font-size="12" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">!</text>
+    </g>
+
+    <!-- Additional floating elements -->
+    <circle cx="260" cy="50" r="4" fill="url(#tealGlow)" opacity="0.7" filter="url(#glow)">
+        <animate attributeName="cy" values="50;45;50" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="280" cy="70" r="3" fill="url(#heroGradient)" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Modern abstract shapes -->
+    <path d="M250 90 Q270 80 285 90 Q270 100 250 90" fill="url(#animatedGradient)" opacity="0.4" filter="url(#glow)"/>
+    <rect x="240" y="45" width="15" height="3" rx="1.5" fill="url(#tealGlow)" opacity="0.5" transform="rotate(15)"/>
+    <rect x="290" y="40" width="10" height="2" rx="1" fill="url(#heroGradient)" opacity="0.6" transform="rotate(-20)"/>
+</svg>

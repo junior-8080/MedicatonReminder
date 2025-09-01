@@ -1,0 +1,44 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+*,
+html,
+body {
+  font-family: "Outfit", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.elementor-shape > svg {
+  display: block;
+  left: 50%;
+  position: relative;
+  width: calc(100% + 1.3px);
+  height: 50px;
+  transform: translateX(-50%) rotateY(180deg);
+}
+
+.ant-table-thead {
+   border: 1px black;
+  font-weight: 600 !important;
+}
+/* Ensure padding applies correctly */
+.ant-table-tbody > tr > td {
+    padding-left: 26px !important;
+
+}
+.ant-table-thead > tr > th  {
+  padding-left: 26px !important;
+    background-color: #E9EFF6;
+  font-weight: 600 !important;
+}
+
+/* Remove the vertical bar from the table header */
+.ant-table-thead > tr > th::before {
+  content: none !important;
+}
+
