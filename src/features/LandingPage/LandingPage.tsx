@@ -1,5 +1,4 @@
 import {Footer} from "@/features/LandingPage/components/Footer";
-import ContactUs from "@/features/LandingPage/components/ContacUs";
 import Solutions from "@/features/LandingPage/components/Solutions";
 import Banner from "@/features/LandingPage/components/Banner";
 import Features from "@/features/LandingPage/components/Features";
