@@ -45,18 +45,17 @@ const AuthPage = () => {
     })
 
     return (
-        <div className="min-h-screen bg-white flex flex-col lg:grid lg:grid-cols-12">
-            <div className="hidden lg:block lg:col-span-5 h-full">
+        <div className="h-screen bg-white grid grid-cols-1 md:grid-cols-12 overflow-hidden">
+            <div className="hidden md:block col-span-5 h-full">
                 <img
                     src={"AuthBanner.jpg"}
                     className="w-full h-full object-cover"
                     alt={"login"}
                 />
             </div>
-
-            <div className="flex-1 lg:col-span-7 flex items-center justify-center p-4 sm:p-6 lg:p-8">
-                <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto">
-                    <div className="bg-gray-50 p-6 sm:p-8 lg:p-10 rounded-lg shadow-sm">
+            <div className="grid-cols-1 md:col-span-7 flex items-center justify-center p-4">
+                <div className="w-full md:max-w-md mx-auto shadow-md">
+                    <div className="p-6">
                         {authView === "signup" && (
                             <SignUpForm
                                 onSubmit={(data) => signUpMutate(data)}
