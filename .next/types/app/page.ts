@@ -1,4 +1,4 @@
-// File: /Users/abdulmukhsinahmed/Desktop/MedicatonReminder/src/app/page.tsx
+// File: /Users/abdulmukhsinahmed/Desktop/other/MedicatonReminder/src/app/page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

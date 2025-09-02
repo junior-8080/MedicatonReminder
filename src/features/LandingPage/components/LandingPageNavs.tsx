@@ -1,6 +1,7 @@
 'use client'
 import React, {useState} from "react";
 import {Button} from "antd";
+import Link from "next/link";
 
 const LandingPageNavs = () => {
     const landingPageNavLinks = [
@@ -16,7 +17,7 @@ const LandingPageNavs = () => {
                     <img
                         src="/Logo.png"
                         alt="app-logo"
-                        className="w-[50px]"
+                        className="w-[50px] rounded-full"
                     />
                     <p className="text-[#c94242]">MedReminder</p>
                 </div>
@@ -31,7 +32,8 @@ const LandingPageNavs = () => {
                         </a>
                     ))}
                 </nav>
-                <Button className="bg-blue-600 text-white">Join the Waitlist</Button>
+               <Link href="/auth" ><Button className="bg-blue-600 text-white">SignUp</Button></Link>
+
             </div>
         </header>
     );

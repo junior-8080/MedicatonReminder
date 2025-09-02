@@ -15,7 +15,7 @@ const AuthSlider = ({ authSliderData }: Props) => {
     };
 
     return (
-        <div className="hidden md:block relative bg-slate-800 text-white overflow-hidden">
+        <div className="hidden md:block relative bg-slate-800 text-white overflow-hidden h-full">
             <div className="absolute inset-0">
                 <AnimatePresence mode="wait">
                     <motion.img

@@ -4,12 +4,12 @@ import Link from "next/link";
 
 
 const AuthTitle = ({title,subtitle}:AuthTileType) => {
-    return <div className="text-center">
+    return <div className="text-center mb-4">
         <Link href="/" className="flex justify-center mb-6">
-            <img src="/logo.png" className="w-[180px]" alt="logo"/>
+            <img src="/Logo.png" className="w-[50px] rounded-full" alt="logo"/>
         </Link>
-        <h2 className="text-2xl  font-semibold mb-4">{title}</h2>
-        <p className="mb-8 text-gray-400">{subtitle}</p>
+        <h2 className="font-semibold">{title}</h2>
+        <p className="text-sm text-gray-400">{subtitle}</p>
     </div>
 }
 

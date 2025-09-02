@@ -1,10 +1,8 @@
 "use client";
 import React, {useState} from "react";
-import {Button, Form, Input, Select} from "antd";
-import {EyeInvisibleOutlined, EyeOutlined} from "@ant-design/icons";
+import {Button, Form, Input} from "antd";
 import {AuthView, SignupBody} from "@/lib/type";
 import AuthTitle from "@/features/AuthPage/components/AuthTitle";
-import {countries} from "@/features/AuthPage/lib/data";
 import {sanitizeGhanaPhoneNumber} from "@/lib/helpers";
 
 type Props = {
@@ -42,7 +40,7 @@ const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
     };
 
     const handleSubmit = (values: SignupBody) => {
-        const {confirmPassword,phone, ...signUpPayload} = values;
+        const {confirmPassword, phone, ...signUpPayload} = values;
 
         onSubmit({
             ...signUpPayload,
@@ -65,6 +63,7 @@ const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
                 className="space-y-4"
                 initialValues={{}}
             >
+
                 <Form.Item
                     name="firstName"
                     label={<span className="text-sm font-medium">First Name</span>}
@@ -77,7 +76,6 @@ const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
                         className="w-full px-4 py-2 rounded-md bg-gray-light focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"
                     />
                 </Form.Item>
-
                 <Form.Item
                     name="lastName"
                     label={<span className="text-sm font-medium">Last Name</span>}
@@ -90,7 +88,6 @@ const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
                         className="w-full px-4 py-2 rounded-md bg-gray-light focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </Form.Item>
-
                 <Form.Item
                     name="email"
                     label={<span className="text-sm font-medium">Email</span>}
@@ -105,45 +102,6 @@ const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
                         className="w-full px-4 py-2 rounded-md bg-gray-light focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"
                     />
                 </Form.Item>
-
-                <Form.Item
-                    name="country"
-                    label={<span className="text-sm font-medium">Country</span>}
-                    rules={[
-                        {required: true, message: "Country is required"},
-                    ]}
-                >
-                    <Select
-                        size={"large"}
-                        className="w-full px-0 py-0 rounded-md bg-gray-light focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        dropdownStyle={{backgroundColor: "white"}}
-                        placeholder={"Select your country"}
-                        optionFilterProp="label"
-                        showSearch={true}
-                        options={countries.slice(0,1).map((country) => {
-                            return {
-                                value: country.code.toUpperCase(),
-                                label: country.name
-                            }
-                        })}
-                    >
-
-                    </Select>
-                </Form.Item>
-
-                <Form.Item
-                    name="phone"
-                    label={<span className="text-sm font-medium">Phone number</span>}
-                    rules={[
-                        {required: true, message: "PhoneNumber is required"},
-                    ]}
-                >
-                    <Input
-                        placeholder="23320000000"
-                        className="w-full px-4 py-2 rounded-md bg-gray-light placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    />
-                </Form.Item>
-
                 <Form.Item
                     name="password"
                     label={<span className="text-sm font-medium">Password</span>}
@@ -152,65 +110,18 @@ const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
                         message: "Please enter your password"
                     }, {validator: strongPasswordValidator},]}
                 >
-          <span className="relative block">
-            <Input
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
-                className="w-full px-4 py-2 rounded-md bg-gray-light focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"
-            />
-            <Button
-                type="text"
-                className="absolute right-1 top-1 text-gray-500"
-                onClick={() => setShowPassword(!showPassword)}
-                icon={showPassword ? <EyeOutlined/> : <EyeInvisibleOutlined/>}
-            />
-          </span>
+                    <Input.Password name="password"
+                                    className="w-full px-4 py-2 rounded-md bg-gray-light focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"></Input.Password>
                 </Form.Item>
-
-                <Form.Item
-                    name="confirmPassword"
-                    label={<span className="text-sm font-medium">Confirm Password</span>}
-                    dependencies={["password"]}
-                    rules={[
-                        {required: true, message: "Please confirm your password"},
-                        ({getFieldValue}) => ({
-                            validator(_, value) {
-                                if (!value || getFieldValue("password") === value) {
-                                    return Promise.resolve();
-                                }
-                                return Promise.reject(
-                                    new Error("The two passwords do not match")
-                                );
-                            },
-                        }),
-                    ]}
-                >
-          <span className="relative block">
-            <Input
-                type={showConfirmPassword ? "text" : "password"}
-                placeholder="Confirm your password"
-                className="w-full px-4 py-2 rounded-md bg-gray-light focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"
-            />
-            <Button
-                type="text"
-                className="absolute right-1 top-1 text-gray-500"
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                icon={
-                    showConfirmPassword ? <EyeOutlined/> : <EyeInvisibleOutlined/>
-                }
-            />
-          </span>
-                </Form.Item>
-
                 <Form.Item>
                     <Button
                         type="primary"
                         htmlType="submit"
-                        className="w-full bg-primary mt-8 text-white py-2 px-4 rounded-md hover:bg-slate-700 transition duration-200"
+                        className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-slate-700 transition duration-200 mt-6"
                         size={"large"}
                         loading={isSubmitting}
                     >
-                        Sign Up
+                        SignUp
                     </Button>
                 </Form.Item>
             </Form>

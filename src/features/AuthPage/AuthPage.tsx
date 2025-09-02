@@ -1,8 +1,6 @@
 "use client";
 import React, {useEffect, useState} from "react";
 import SignUpForm from "@/features/AuthPage/components/SignUpForm";
-import AuthSlider from "@/features/AuthPage/components/AuthSlider";
-import {authSliderData} from "@/lib/data";
 import {AuthView} from "@/lib/type";
 import SignInForm from "@/features/AuthPage/components/SignInForm";
 import RequestPasswordResetForm from "@/features/AuthPage/components/RequestPasswordResetForm";
@@ -47,29 +45,40 @@ const AuthPage = () => {
     })
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full h-screen bg-white">
-            <div className="w-[80%] md:w-[50%] mx-auto my-auto text-black">
-                {authView === "signup" && (
-                    <SignUpForm
-                        onSubmit={(data) => signUpMutate(data)}
-                        setAuthView={(view) => setAuthView(view)}
-                        isSubmitting={signupPending}
-                    />
-                )}
-                {authView === "login" &&
-                    <SignInForm
-                        onSubmit={async (data) => loginMutate(data)}
-                        setAuthView={(view) => setAuthView(view)}
-                        isSubmitting={loginPending}
-                    />
-                }
-                {authView === "request-password-reset" &&
-                    <RequestPasswordResetForm onSubmit={requestPasswordReset} loading={isRequestingPassword}/>
-                }
-                {authView === "reset-password" && <ResetPasswordForm onSubmit={resetPassword} loading={isResetting}/>}
+        <div className="min-h-screen bg-white flex flex-col lg:grid lg:grid-cols-12">
+            <div className="hidden lg:block lg:col-span-5 h-full">
+                <img
+                    src={"AuthBanner.jpg"}
+                    className="w-full h-full object-cover"
+                    alt={"login"}
+                />
             </div>
 
-            <AuthSlider authSliderData={authSliderData}/>
+            <div className="flex-1 lg:col-span-7 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+                <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto">
+                    <div className="bg-gray-50 p-6 sm:p-8 lg:p-10 rounded-lg shadow-sm">
+                        {authView === "signup" && (
+                            <SignUpForm
+                                onSubmit={(data) => signUpMutate(data)}
+                                setAuthView={(view) => setAuthView(view)}
+                                isSubmitting={signupPending}
+                            />
+                        )}
+                        {authView === "login" &&
+                            <SignInForm
+                                onSubmit={async (data) => loginMutate(data)}
+                                setAuthView={(view) => setAuthView(view)}
+                                isSubmitting={loginPending}
+                            />
+                        }
+                        {authView === "request-password-reset" &&
+                            <RequestPasswordResetForm onSubmit={requestPasswordReset} loading={isRequestingPassword}/>
+                        }
+                        {authView === "reset-password" &&
+                            <ResetPasswordForm onSubmit={resetPassword} loading={isResetting}/>}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
