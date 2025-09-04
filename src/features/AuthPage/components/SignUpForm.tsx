@@ -1,23 +1,20 @@
 "use client";
-import React, {useState} from "react";
+import React from "react";
 import {Button, Form, Input} from "antd";
 import {AuthView, SignupBody} from "@/lib/type";
 import AuthTitle from "@/features/AuthPage/components/AuthTitle";
-import {sanitizeGhanaPhoneNumber} from "@/lib/helpers";
 
 type Props = {
-    onSubmit: (data: SignupBody) => void;
+    onSubmit: (data: { email: string, name: string; password: string }) => void;
     setAuthView: (view: AuthView) => void;
     isSubmitting: boolean;
 };
 
 const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
     const [form] = Form.useForm();
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const strongPasswordValidator = (_: any, value: string) => {
-        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*]{8,}$/;
         if (!strongPasswordRegex.test(value)) {
             return Promise.reject(
                 new Error(
@@ -40,13 +37,11 @@ const SignUpForm = ({onSubmit, setAuthView, isSubmitting}: Props) => {
     };
 
     const handleSubmit = (values: SignupBody) => {
-        const {confirmPassword, phone, ...signUpPayload} = values;
+        const {firstName, lastName, ...signUpPayload} = values;
 
         onSubmit({
+            name: `${firstName} ${lastName}`,
             ...signUpPayload,
-            phone: sanitizeGhanaPhoneNumber(phone) || phone,
-            isValid: false,
-            isKycVerify: "not_verified",
         });
     };
 

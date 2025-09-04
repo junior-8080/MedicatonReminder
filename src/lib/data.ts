@@ -25,15 +25,10 @@ export const authSliderData = [
 
 
 export const navItems = [
-    // {id: 1, label: 'Dashboard', key: '/dashboard',roles:["ADMIN","USER"]},
-    // {id: 2, label: 'SMS', key: 'sms',roles:["ADMIN","USER"]},
-    {id: 10, label: 'Packages', key: "packages",roles:["ADMIN","USER"]},
-    {id: 3, label: 'OTP', key: "otp",roles:["ADMIN","USER"]},
-    // {id: 4, label: 'RechargePage', key: 'recharge-removed'},
-    {id: 5, label: 'USSD', key: 'ussd', roles:["USERS","ADMIN"]},
-    {id: 6, label: 'API', key: 'api',roles:["ADMIN","USER"]},
-    {id: 8, label: 'Contacts', key: 'contact',roles:["ADMIN","USER"]},
-    {id: 9, label: 'Documentation', key: 'support',roles:["ADMIN","USER"]},
+    {id: 1, label: 'USSD', key: 'ussd', roles:["USERS","ADMIN"]},
+    {id: 2, label: 'API', key: 'api',roles:["ADMIN","USER"]},
+    {id: 3, label: 'Contacts', key: 'contact',roles:["ADMIN","USER"]},
+    {id: 4, label: 'Documentation', key: 'support',roles:["ADMIN","USER"]},
 ];
 
 

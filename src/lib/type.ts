@@ -17,11 +17,6 @@ export type SignupBody = {
     firstName: string
     lastName: string
     password: string
-    country: string
-    phone: string;
-    confirmPassword?: string;
-    isValid?: boolean;
-    isKycVerify: "not_verified" | "verified" | "rejected";
 }
 
 export type SignupFormBody = {

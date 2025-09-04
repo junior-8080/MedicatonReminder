@@ -10,7 +10,7 @@ type Props = {
 export const useRegister = ({onSuccess}:Props) => {
   const router = useRouter();
   return useMutation({
-    mutationFn: (data: SignupBody) => authApi.signup(data),
+    mutationFn: (data: {email:string,name:string,password:string}) => authApi.signup(data),
     onSuccess: () => {
       onSuccess()
     },

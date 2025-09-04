@@ -11,7 +11,7 @@ const Banner = () => {
         <section className="grid grid-col-1 md:grid-cols-12 items-center justify-between w-[90%] md:w-[80%] mx-auto py-12">
             <div className="col-span-7">
                 <div className="space-y-4">
-                    <h1 className="text-6xl font-bold">Never Miss a Dose <br/>Again</h1>
+                    <h1 className="text-4xl md:text-6xl font-bold">Never Miss a Dose <br/>Again</h1>
                     <p className="text-sm text-gray-600">Automated voice reminders scheduled by your healthcare provider
                         ensure perfect medication adherence
                     </p>

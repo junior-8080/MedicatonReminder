@@ -1,11 +1,18 @@
 import React, { PropsWithChildren } from "react";
-import AppHeader from "../shared/Header";
+import Sidebar from "@/components/core/Sidebar";
 
 function PageLayout({ children }: PropsWithChildren) {
   return (
     <>
-      <AppHeader />
-      <section className="md:mt-6 mx-[5%]">{children}</section>
+      <section className="grid grid-cols-12">
+          <div className="col-span-2">
+              <Sidebar />
+          </div>
+        <div className="col-span-10">
+            {children}
+        </div>
+
+      </section>
     </>
   );
 }

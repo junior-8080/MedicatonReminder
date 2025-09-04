@@ -1,7 +1,7 @@
 
 export const endpoints ={
     login: 'auth/login',
-    create_user:"/users",
+    signup:"/auth/signup",
     fetch_user_wallet:"/wallets/wallet",
     fetch_sms_balance:"/sms-balance",
     top_up : '/sms-balance/purchase',

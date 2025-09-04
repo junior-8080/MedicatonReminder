@@ -1,16 +1,7 @@
 export interface User {
     id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    country:string;
-    phoneNumber: string;
-    phone_number:string;
-    first_name: string;
-    last_name: string;
-    role:"ADMIN" | "USER";
-    createdAt: string;
-    updateAt:string;
+   email:string;
+   name:string;
   }
   
  export  interface AuthState {

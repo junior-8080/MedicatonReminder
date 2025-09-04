@@ -1,6 +1,6 @@
 "use client";
 import React, {useState} from "react";
-import {navItems, smsNavs} from "@/lib/data";
+import {navItems} from "@/lib/data";
 import {CiLogout} from "react-icons/ci";
 import Link from "next/link";
 import {useAuth} from "@/features/AuthPage/hooks/useAuth";
@@ -45,7 +45,7 @@ const Navs = () => {
 
                     <div className="flex items-center text-white" onClick={() => setMenuOpen(!menuOpen)}>
                         {user && (
-                            <Avatar className="text-sm">{`${user?.first_name.slice(0, 1)}${user?.last_name.slice(0, 1)}`}</Avatar>
+                            <Avatar className="text-sm">{`${user?.name.slice(0, 1)}`}</Avatar>
                         )}
                         <div className="relative">
                             <button
@@ -78,46 +78,6 @@ const Navs = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="flex items-center justify-between px-8 shadow-md">
-                <div className="flex items-center gap-14">
-                    <Link href={"/dashboard"} className={`text-sm cursor-pointer ${
-                        pathname.includes("/dashboard")
-                            ? "text-primary font-bold px-3 py-3 border-b-2 border-primary bg-blue-50"
-                            : "px-3 py-3"
-                    }`}>
-                        Dashboard
-                    </Link>
-                    <Popover content={<div className="flex flex-col">
-                        {smsNavs.map(nav => <Link href={`/${nav.key}`} key={nav.key}
-                                                  className="text-primary p-2 text-sm cursor-pointer hover:bg-gray-light">{nav.label}</Link>)}
-                    </div>}>
-                        <p className={`text-sm cursor-pointer ${
-                            ["/sms", "/scheduled-message", "/send-sms"].includes(pathname)
-                                ? "text-primary font-bold px-3 py-3 border-b-2 border-primary bg-blue-50"
-                                : "px-3 py-3"
-                        }`}>SMS</p>
-                    </Popover>
-                    {navItems.filter(item => item.roles.includes(user?.role || "")).map((navItem) => (
-                        <Link
-                            href={navItem.key}
-                            key={navItem.label}
-                            className={`text-sm cursor-pointer ${
-                                pathname.includes(navItem.key)
-                                    ? "text-primary font-bold px-3 py-3 border-b-2 border-primary bg-blue-50"
-                                    : "px-3 py-3"
-                            }`}
-                        >
-                            {navItem.label}
-                        </Link>
-                    ))}
-                </div>
-                {user?.role === "ADMIN" && <Link
-                    href={"/sys-admin"}
-                    className="text-sm text-white bg-light-primary rounded-3xl border border-2-white p-1 px-8"
-                >
-                    Admin
-                </Link>}
             </div>
         </div>
     );

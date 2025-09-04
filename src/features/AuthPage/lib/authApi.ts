@@ -7,8 +7,8 @@ export const authApi = {
     signin : async (payload:LoginBody) => {
         return await api.post(endpoints.login, payload);
       },
-      signup : async (payload:SignupBody) => {
-          return await api.post(endpoints.create_user, payload);
+      signup : async (payload:{email:string,name:string,password:string}) => {
+          return await api.post(endpoints.signup, payload);
       },
       requestPasswordReset: async (payload: RequestPasswordResetType) => {
         return await  api.post(endpoints.request_password_reset,payload)
